@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react'
+import { Button } from 'react-bootstrap';
 
 
 function Modal() {
@@ -68,7 +69,7 @@ function Modal() {
                 <input type="checkbox" className="form-check-input" />
                 <label className="form-check-label">I agree to the <a href="#">Terms & Condition</a> & <a href="#">Privacy policy</a></label>
               </div>
-              <button type="button" className="btn btn-login"  data-bs-dismiss="modal" onClick={handleSignUp}>Sign Up</button>
+              <Button type="button" className="btn btn-signup m-auto d-flex px-5"  data-bs-dismiss="modal" onClick={handleSignUp}>Sign Up</Button>
               <p className="text-center" onClick={(e)=>router.push('/user/login')}>Already have an account ? <a href="#" className=" fw-bold" data-bs-dismiss="modal">Login</a> </p>
             </form>
           </div>
