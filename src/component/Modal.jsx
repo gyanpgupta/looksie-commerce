@@ -11,8 +11,14 @@ function Modal() {
   const [password, setPassword] = useState();
   const router = useRouter()
 
+
+
   const handleSignUp = async (e) => {
     e.preventDefault();
+    let lg = password.split('')
+    if(lg.length <= 8 ) {
+      alert('please insert passord at least 8 character')
+    }
     if(!name, !email, !userName, !password) {
       alert('please enter all field')
     }
