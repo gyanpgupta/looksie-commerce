@@ -6,13 +6,11 @@ mongodb
 node
 yarn
 
-## setup mongodb compass 
-
-## run "yarn"  
 
 ## Getting Started
-
-run "yarn dev"
+setup mongodb compass 
+run yarn
+run yarn dev
 
 ## Functionality
 1) Added sign in and sign up api with mongodb database
