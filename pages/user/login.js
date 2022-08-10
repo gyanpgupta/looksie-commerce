@@ -17,7 +17,7 @@ export default function Login() {
 
   const handleLogin = (e) => {
     e.preventDefault()
-    if(!email, !password) {
+    if(!email) {
       alert('please enter valid details')
     }
     else {

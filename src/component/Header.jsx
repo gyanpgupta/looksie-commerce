@@ -7,10 +7,12 @@ import { BiCommentDetail } from "react-icons/bi";
 import Slider from "react-slick";
 import {Departments} from '../../data/departments'
 import Router, { useRouter }  from "next/router";
-import { useSelector } from "react-redux";
+import { useSelector,useDispatch } from "react-redux";
 import { Button } from "react-bootstrap";
+import {clearCart} from '../../store/feature/reducer'
 
 function Header() {
+  const dispatch = useDispatch()
   const router = useRouter()
   const carts = useSelector(state=> state.cartItem.cart)
   const [token, setToken] = useState();
@@ -25,6 +27,7 @@ function Header() {
 
   const handleSignout = (e) => {
     e.preventDefault()
+    dispatch(clearCart())
     setToken('')
     localStorage.removeItem('token')
   }
