@@ -37,17 +37,17 @@ export default function Login() {
 
   return (
     <>
-    <Header />
-    <h1 className='text-center fw-bold mt-4'>Sign In</h1>
-    <form className='signinform '>
-              <div className="mb-3 input-values">
-                <label className="form-label ps-3 mb-1">E-mail </label>
-                <input type="email" className="form-control border-0" placeholder="name@examole.com" value={email} onChange={(e)=> setEmail(e.target.value)} />
-              </div>
-              <Button type="button" className="btn btn-login d-flex m-auto" onClick={handleLogin}>Sign In</Button>
-            </form>
-            <Modal/>
-            </>
+      <Header />
+      <h1 className='text-center fw-bold mt-4'>Sign In</h1>
+      <form className='signinform '>
+        <div className="mb-3 input-values">
+          <label className="form-label ps-3 mb-1">E-mail </label>
+          <input type="email" className="form-control border-0" placeholder="name@examole.com" value={email} onChange={(e)=> setEmail(e.target.value)} />
+        </div>
+        <Button type="button" className="btn btn-login d-flex m-auto" onClick={handleLogin}>Sign In</Button>
+      </form>
+      <Modal/>
+    </>
   )
 
 }
