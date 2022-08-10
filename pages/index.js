@@ -5,16 +5,8 @@ import Modal from '../src/component/Modal'
 import Footer from '../src/component/Footer'
 
 import Landing from '../src/component/Landing'
-import { useEffect } from 'react'
-import { useRouter } from 'next/router'
 
 export default function Home() {
-  const router = useRouter()
-  useEffect(() => {
-    if(!localStorage.getItem('token')) {
-      router.push('/user/login')
-    }
-  }, []);
 
   return (
     <div className={styles.container}>

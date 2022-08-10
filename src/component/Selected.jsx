@@ -32,7 +32,6 @@ function Selected(props) {
     e.preventDefault()
     setShow(true)
     dispatch(addProductToCart(props.data))
-    console.log(addToCart, 'add');
   }
   return (
     <section className="container px-0 py-5 border-bottom">

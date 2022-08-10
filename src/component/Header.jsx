@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../../styles/Header.module.css";
 import Image from "next/image";
 import { FaSearch } from "react-icons/fa";
@@ -6,12 +6,29 @@ import { AiFillShopping, AiOutlineBell } from "react-icons/ai";
 import { BiCommentDetail } from "react-icons/bi";
 import Slider from "react-slick";
 import {Departments} from '../../data/departments'
-import Router  from "next/router";
+import Router, { useRouter }  from "next/router";
 import { useSelector } from "react-redux";
+import { Button } from "react-bootstrap";
 
 function Header() {
+  const router = useRouter()
   const carts = useSelector(state=> state.cartItem.cart)
-  
+  const [token, setToken] = useState();
+
+  useEffect(() => {
+    let token = localStorage.getItem('token')
+    setToken(token)
+    if(!token){
+      router.push('/user/login')
+    }
+  }, [token]); 
+
+  const handleSignout = (e) => {
+    e.preventDefault()
+    setToken('')
+    localStorage.removeItem('token')
+  }
+
   const settings = {
     slidesToShow: 6,
     slidesToScroll: 1,
@@ -51,13 +68,13 @@ function Header() {
               <span className="notification">{carts?.length}</span>
               <BiCommentDetail className="px-2" fill={"#9a9aaa"} size={45} />
               <AiOutlineBell className=" px-2" fill={"#9a9aaa"} size={45} />
-              <input
+               {token === null ? <input
                 className={`btn btn-sm ${styles.inbtn} px-4 py-1`}
                 type="button"
                 value="Sign Up / In"
                 data-bs-toggle="modal"
                 data-bs-target="#signupModal"
-              />
+              />:<Button onClick={handleSignout}>Signout </Button>}
             </div>
           </div>
         </nav>
